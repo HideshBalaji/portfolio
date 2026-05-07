@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hidesh Balaji C U — Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- Topbar -->
+<div class="topbar">
+  <div class="topbar-left">
+    <span class="topbar-prompt">hidesh@arch</span>
+    <span class="topbar-path">~ / portfolio</span>
+  </div>
+  <div class="topbar-right">
+    <div class="topbar-status">
+      <div class="status-dot"></div>
+      <span style="font-size:10px; color:var(--green)">online</span>
+    </div>
+    <a href="https://github.com/HideshBalaji" target="_blank" class="topbar-link">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      GitHub
+    </a>
+    <a href="https://www.linkedin.com/in/hidesh-balaji-c-u-068532221/" target="_blank" class="topbar-link">
+      <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+      LinkedIn
+    </a>
+  </div>
+</div>
+
+<!-- Main layout -->
+<div class="main-layout">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">Navigation</div>
+      <a href="#hero" class="sidebar-nav-item active" onclick="setActive(this)">
+        <svg class="sidebar-nav-icon" viewBox="0 0 24 24"><path d="M3 12L12 3l9 9M5 10v9h5v-5h4v5h5v-9"/></svg>
+        home
+      </a>
+      <a href="#about" class="sidebar-nav-item" onclick="setActive(this)">
+        <svg class="sidebar-nav-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        about.md
+      </a>
+      <a href="#projects" class="sidebar-nav-item" onclick="setActive(this)">
+        <svg class="sidebar-nav-icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        projects/
+      </a>
+      <a href="#skills" class="sidebar-nav-item" onclick="setActive(this)">
+        <svg class="sidebar-nav-icon" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+        stack.json
+      </a>
+      <a href="#contact" class="sidebar-nav-item" onclick="setActive(this)">
+        <svg class="sidebar-nav-icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        contact.sh
+      </a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Links</div>
+      <a href="https://github.com/HideshBalaji" target="_blank" class="sidebar-nav-item">
+        <svg class="sidebar-nav-icon" viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        github
+      </a>
+      <a href="https://www.linkedin.com/in/hidesh-balaji-c-u-068532221/" target="_blank" class="sidebar-nav-item">
+        <svg class="sidebar-nav-icon" viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        linkedin
+      </a>
+    </div>
+    <div class="sidebar-bottom">
+      <div class="sidebar-version">v1.0.0 — 2026</div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <main class="content">
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow fade-in">whoami<span class="cursor-blink">█</span></div>
+        <h1 class="hero-name fade-in delay-1">Hidesh<br /><span>Balaji C U</span></h1>
+        <p class="hero-tagline fade-in delay-2">Building <em>fast</em>, <em>reliable</em> systems at scale.</p>
+        <div class="hero-chips fade-in delay-3">
+          <span class="chip highlight">JavaScript</span>
+          <span class="chip highlight">Python</span>
+          <span class="chip highlight">C#</span>
+          <span class="chip highlight">Rust</span>
+          <span class="chip">Backend</span>
+          <span class="chip">AI/ML Infra</span>
+        </div>
+        <div class="hero-cta fade-in delay-4">
+          <a href="#projects" class="btn btn-primary">./view_projects.sh</a>
+          <a href="#contact" class="btn btn-ghost">contact --open</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="section-header">
+        <span class="section-title">about.md</span>
+        <div class="section-line"></div>
+        <span class="section-num">01</span>
+      </div>
+      <div class="about-grid">
+        <div class="terminal-block fade-in">
+          <div class="terminal-titlebar">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-amber"></div>
+            <div class="dot dot-green"></div>
+            <span class="terminal-filename">~/about.md</span>
+          </div>
+          <div class="terminal-body">
+            <div class="t-line"><span class="t-prompt">$</span><span class="t-cmd"> cat about.md</span></div>
+            <div style="height:12px"></div>
+            <div><span class="t-key"># </span><span class="t-val">Hidesh Balaji C U</span></div>
+            <div style="height:8px"></div>
+            <div class="t-out">Software Engineer passionate about building</div>
+            <div class="t-out">systems that perform under pressure.</div>
+            <div style="height:8px"></div>
+            <div class="t-out">I work across the full stack but live closest</div>
+            <div class="t-out">to the backend — performance, reliability,</div>
+            <div class="t-out">and clean abstractions are my craft.</div>
+            <div style="height:8px"></div>
+            <div class="t-out">Currently exploring <span class="t-val">Retrieval-Augmented</span></div>
+            <div class="t-out"><span class="t-val">Generation (RAG)</span> and <span class="t-val">Rust</span> for systems work.</div>
+          </div>
+        </div>
+        <div class="terminal-block fade-in delay-2">
+          <div class="terminal-titlebar">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-amber"></div>
+            <div class="dot dot-green"></div>
+            <span class="terminal-filename">~/.config/profile.json</span>
+          </div>
+          <div class="terminal-body">
+            <div class="t-line"><span class="t-prompt">$</span><span class="t-cmd"> cat .config/profile.json</span></div>
+            <div style="height:12px"></div>
+            <div><span class="t-comment">{</span></div>
+            <div>&nbsp;&nbsp;<span class="t-key">"role"</span><span class="t-comment">: </span><span class="t-val">"Software Engineer"</span><span class="t-comment">,</span></div>
+            <div>&nbsp;&nbsp;<span class="t-key">"focus"</span><span class="t-comment">: </span><span class="t-val">"Backend &amp; Systems"</span><span class="t-comment">,</span></div>
+            <div>&nbsp;&nbsp;<span class="t-key">"languages"</span><span class="t-comment">: [</span></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-val">"JavaScript"</span><span class="t-comment">,</span></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-val">"Python"</span><span class="t-comment">,</span></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-val">"C#"</span><span class="t-comment">,</span></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-val">"Rust"</span></div>
+            <div>&nbsp;&nbsp;<span class="t-comment">],</span></div>
+            <div>&nbsp;&nbsp;<span class="t-key">"interests"</span><span class="t-comment">: [</span><span class="t-val">"ML Engineering"</span><span class="t-comment">],</span></div>
+            <div>&nbsp;&nbsp;<span class="t-key">"status"</span><span class="t-comment">: </span><span class="t-val">"open_to_opportunities"</span></div>
+            <div><span class="t-comment">}</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="section-header">
+        <span class="section-title">projects/</span>
+        <div class="section-line"></div>
+        <span class="section-num">02</span>
+      </div>
+      <div class="project-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-num">project_01</div>
+          <div class="project-title">Enhancing Career Guidance using RAG</div>
+          <div class="project-desc">AI-driven web app that analyzes resumes via NLP, ranks job titles using TF-IDF &amp; cosine similarity, and matches users to 1000+ job titles via SerpApi — delivering top 5 personalized recommendations.</div>
+          <div class="project-tags">
+            <span class="tag">React</span>
+            <span class="tag">Flask</span>
+            <span class="tag">REST API</span>
+            <span class="tag">Ollama</span>
+            <span class="tag">spaCy</span>
+            <span class="tag">SQLite</span>
+          </div>
+          <a href="https://github.com/HideshBalaji" target="_blank" class="project-link">→ view source</a>
+        </div>
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-num">project_02</div>
+          <div class="project-title">High-Performance Data Pipeline Benchmark</div>
+          <div class="project-desc">End-to-end ETL pipeline on the NYC Taxi dataset comparing pandas vs Polars (Rust). Lazy execution + parallel query planning delivered <span style="color:var(--green)">7× faster runtime</span> (3.43s → 0.48s) with reduced memory footprint via columnar processing.</div>
+          <div class="project-tags">
+            <span class="tag">Rust</span>
+            <span class="tag">Polars</span>
+            <span class="tag">Python</span>
+            <span class="tag">pandas</span>
+            <span class="tag">pyarrow</span>
+            <span class="tag">ETL</span>
+          </div>
+          <a href="https://github.com/HideshBalaji" target="_blank" class="project-link">→ view source</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="section-header">
+        <span class="section-title">stack.json</span>
+        <div class="section-line"></div>
+        <span class="section-num">03</span>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <div class="skill-group-title">Languages</div>
+          <div class="skill-item">JavaScript</div>
+          <div class="skill-item">Python</div>
+          <div class="skill-item">C#</div>
+          <div class="skill-item">Rust</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">AI / ML</div>
+          <div class="skill-item">RAG Systems</div>
+          <div class="skill-item">LLM Integration</div>
+          <div class="skill-item">Vector DBs</div>
+          <div class="skill-item">ML Pipelines</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Systems</div>
+          <div class="skill-item">API Design</div>
+          <div class="skill-item">Performance Eng.</div>
+          <div class="skill-item">Linux</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="section-header">
+        <span class="section-title">contact.sh</span>
+        <div class="section-line"></div>
+        <span class="section-num">04</span>
+      </div>
+      <div class="terminal-block" style="max-width:540px; margin-bottom:28px;">
+        <div class="terminal-titlebar">
+          <div class="dot dot-red"></div>
+          <div class="dot dot-amber"></div>
+          <div class="dot dot-green"></div>
+          <span class="terminal-filename">~/contact.sh</span>
+        </div>
+        <div class="terminal-body">
+          <div class="t-line"><span class="t-prompt">$</span><span class="t-cmd"> ./contact.sh --reach-out</span></div>
+          <div style="height:8px"></div>
+          <div class="t-out">Initializing contact protocol...</div>
+          <div style="color:var(--green); margin-top:4px;">✓ Available for new opportunities</div>
+          <div style="color:var(--green);">✓ Open to interesting problems</div>
+          <div style="color:var(--amber); margin-top:4px;">→ Best reached via LinkedIn or GitHub</div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <a href="https://github.com/HideshBalaji" target="_blank" class="contact-card">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          github.com/HideshBalaji
+        </a>
+        <a href="https://www.linkedin.com/in/hidesh-balaji-c-u-068532221/" target="_blank" class="contact-card">
+          <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          linkedin — Hidesh Balaji
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <span>Hidesh Balaji C U © 2026</span>
+      <span style="color:var(--green-dim)">Built with Caffeine</span>
+      <span>hidesh@arch:~$<span class="cursor-blink">█</span></span>
+    </footer>
+
+  </main>
+</div>
+
+<div id="tweaks-root"></div>
+
+<!-- Tweaks panel framework + app -->
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks-app.jsx"></script>
+
+<!-- Sidebar nav + scroll-spy -->
+<script src="script.js"></script>
+
+</body>
+</html>
