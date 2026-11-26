@@ -25,20 +25,13 @@
       </span>
     </h1>
 
-    <p class="role">Full-stack developer in {profile.location}, with a machine-learning habit.</p>
+    <p class="role">Software engineer in {profile.location}.</p>
 
     <p>
-      I build <mark>offline-first apps</mark>, <mark>RAG pipelines</mark> and the plumbing that
-      turns messy records into something people can read.
+      I play <mark>video games</mark>, listen to <mark>music</mark> and build the things I think are
+      needed.
     </p>
-    <p>
-      Published at <mark>IEEE ICICT 2025</mark> on retrieval-augmented career guidance. B.Tech in
-      Computer Science from Amrita, Coimbatore.
-    </p>
-    <p>
-      Away from the keyboard I ran <mark>Kaleidoscope</mark>, the college film wing, and captained
-      the 7's football side.
-    </p>
+    <p>I love experimenting with <mark>new stacks and frameworks</mark>.</p>
 
     <ul class="links">
       <li><a href={profile.github} target="_blank" rel="noopener">GitHub</a></li>

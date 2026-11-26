@@ -66,23 +66,28 @@ export const projects = [
   },
 ];
 
+// Work history, newest first. Keep each job to one or two short lines; the
+// full detail lives in the resume. `note` is an optional line under the role.
 export const experience = [
+  {
+    company: 'Complyance',
+    place: 'Chennai',
+    when: 'May 2026 – present',
+    role: 'Associate software engineer',
+    note: 'Since Nov 2026. Full-stack developer intern before that, May to Nov 2026.',
+    lines: [
+      'Shipped end-to-end e-invoicing for Oman, sending and receiving, in under five days, and built e-invoice XML generation for Germany and Belgium.',
+      'Rebuilt the Excel and CSV invoice import service for Complyance v3, and built invoice PDF templates and a proof-of-concept Microsoft Dynamics 365 connector.',
+    ],
+  },
   {
     company: 'Blinking Soft',
     place: 'Coimbatore',
-    when: 'From Dec 2025',
+    when: 'Dec 2025 – May 2026',
     role: 'Full-stack developer',
     lines: [
-      'Built offline-first features on a local database (WatermelonDB) and AsyncStorage, with background sync to REST APIs.',
-      'Integrated a receipt-parsing pipeline around a pretrained GLM-based OCR model, storing the structured output for downstream processing.',
-      'Built CSV and Excel exports from parsed receipt data, so clients can report on it.',
-      'Automated notifications and customer messages over WhatsApp using the Exotel and Meta APIs.',
-    ],
-    more: [
-      'Added dynamic forms, image upload and download flows, and real-time validation.',
-      'Worked with backend developers on consuming and testing APIs, authentication flows and network performance.',
-      'Refactored components and services for maintainability, performance and readability.',
-      'Pitched product and feature ideas to improve usability and workflow.',
+      'Built offline-first features on WatermelonDB and AsyncStorage, with background sync to REST APIs.',
+      'Added a receipt-parsing pipeline on a GLM-based OCR model, and automated WhatsApp notifications through the Exotel and Meta APIs.',
     ],
   },
   {
@@ -91,22 +96,8 @@ export const experience = [
     when: 'Jul 2025 – Nov 2025',
     role: 'ServiceNow analyst',
     lines: [
-      'Built a pipeline that clusters incident records with machine learning, then uses LLMs to write a clear name and definition for each cluster.',
-      'Set up Predictive Intelligence by training clustering models that categorise incoming incidents automatically.',
-      'Analysed and tuned ServiceNow workflows to make processes more efficient.',
+      'Built a pipeline that clusters incident records with machine learning and uses LLMs to name and define each cluster, and trained Predictive Intelligence models to categorise incoming incidents.',
     ],
-    more: [],
-  },
-  {
-    company: 'Prism Software Solutions',
-    place: 'Chennai',
-    when: 'Jun 2024 – Aug 2024',
-    role: 'Web developer',
-    lines: [
-      'Back-end developer on the Prism Resort project.',
-      'Worked on a .NET web application, with Razor Pages on the front end and C# for backend logic and integration.',
-    ],
-    more: [],
   },
 ];
 
@@ -122,19 +113,12 @@ export const paper = {
 
 export const toolkit = [
   {
-    group: 'Programming and frameworks',
-    items: ['Python', 'scikit-learn', 'Pandas', 'NumPy', 'TensorFlow', 'PyTorch', 'spaCy', 'Flask'],
+    group: 'Stack',
+    items: ['JavaScript', 'TypeScript', 'Rust', 'C++'],
   },
   {
     group: 'Software engineering',
-    items: [
-      'REST API development',
-      'Backend integration',
-      'Model deployment',
-      'Debugging',
-      'Code optimisation',
-      'Full-stack development',
-    ],
+    items: ['REST APIs', 'Backend integration', 'Full-stack development'],
   },
   {
     group: 'Databases and data handling',
@@ -184,7 +168,7 @@ export const shelves = [
     label: 'the ones i go back to',
     games: [
       { title: 'Grand Theft Auto IV', icon: 'city', color: '#2a2925', ink: '#f4ecd9', height: 260 },
-      { title: 'Risk of Rain', icon: 'rain', color: '#4a4470', ink: '#f4ecd9', height: 228 },
+      { title: 'Risk of Rain 2', icon: 'rain', color: '#4a4470', ink: '#f4ecd9', height: 228 },
       { title: 'League of Legends', icon: 'sword', color: '#c79a35', ink: '#1d1b16', height: 250 },
       { title: 'Deadlock', icon: 'lock', color: '#7a2f24', ink: '#f4ecd9', height: 214 },
     ],
@@ -194,7 +178,13 @@ export const shelves = [
 // Records scattered around the page (see Vinyl.svelte). `sleeve` and `ink`
 // colour the cover, `label` the sticker in the middle of the disc.
 export const vinyls = {
-  nirvana: { title: 'Nirvana', artist: '', sleeve: '#1b1a18', ink: '#ffd84a', label: '#ffd84a' },
+  nirvana: {
+    title: 'Heart-Shaped Box',
+    artist: 'Nirvana',
+    sleeve: '#1b1a18',
+    ink: '#ffd84a',
+    label: '#ffd84a',
+  },
   blonde: {
     title: 'Blonde',
     artist: 'Frank Ocean',

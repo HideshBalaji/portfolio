@@ -21,26 +21,13 @@
             <span class="when">{job.when}</span>
           </h3>
           <p class="role">{job.role}</p>
+          {#if job.note}<p class="note">{job.note}</p>{/if}
 
           <ul class="lines">
             {#each job.lines as line (line)}
               <li>{line}</li>
             {/each}
           </ul>
-
-          {#if job.more.length}
-            <details>
-              <summary>
-                <span class="closed">Show {job.more.length} more lines</span>
-                <span class="open">Show fewer lines</span>
-              </summary>
-              <ul class="lines">
-                {#each job.more as line (line)}
-                  <li>{line}</li>
-                {/each}
-              </ul>
-            </details>
-          {/if}
         </li>
       {/each}
     </ol>
@@ -124,31 +111,9 @@
     background: var(--ink);
   }
 
-  details .lines {
-    margin-top: 7px;
-  }
-  summary {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 1px 10px;
-    border: 1px dashed var(--ink-rule);
-    border-radius: 999px;
-    font-size: 14px;
+  .note {
+    font-size: 14.5px;
     color: var(--ink-dim);
-    cursor: pointer;
-    list-style: none;
-  }
-  summary::-webkit-details-marker {
-    display: none;
-  }
-  summary:hover {
-    background: var(--hi);
-    border-color: var(--hi);
-    color: var(--ink);
-  }
-  details[open] summary .closed,
-  details:not([open]) summary .open {
-    display: none;
   }
 
   .cut {

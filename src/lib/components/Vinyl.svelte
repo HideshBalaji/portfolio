@@ -15,7 +15,7 @@
 >
   <span class="disc" aria-hidden="true"><span class="label"></span></span>
   <span class="sleeve" aria-hidden="true">
-    <span class="title">{record.title}</span>
+    <span class="title" class:long={record.title.length > 9}>{record.title}</span>
     {#if record.artist}<span class="artist">{record.artist}</span>{/if}
   </span>
   <figcaption class="visually-hidden">
@@ -106,6 +106,11 @@
     font-family: var(--hand);
     font-size: 31px;
     line-height: 0.95;
+  }
+  /* longer titles drop a size so they fit the sleeve */
+  .title.long {
+    font-size: 24px;
+    line-height: 1;
   }
   .artist {
     margin-top: 2px;
