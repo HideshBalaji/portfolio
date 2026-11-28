@@ -1,11 +1,44 @@
 <script>
   // The contact block and the footer with the achievement tracker.
   import { onMount } from 'svelte';
+  import { fly } from 'svelte/transition';
   import { profile, vinyls } from '../data.js';
   import Vinyl from './Vinyl.svelte';
   import { achievements, list, unlock } from '../achievements.svelte.js';
 
   let footer = $state();
+
+  // Discord has no public profile link, so the button shows the handle and
+  // copies it, then a small pop-up above the button says what happened.
+  let popup = $state('');
+  let copyTimer;
+
+  async function copyDiscord() {
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(profile.discord);
+      ok = true;
+    } catch (e) {
+      // some browsers block the clipboard API; copy from a hidden field instead
+      const field = document.createElement('textarea');
+      field.value = profile.discord;
+      field.setAttribute('readonly', '');
+      field.style.position = 'fixed';
+      field.style.opacity = '0';
+      document.body.appendChild(field);
+      field.select();
+      try {
+        ok = document.execCommand('copy');
+      } catch (err) {
+        ok = false;
+      }
+      field.remove();
+    }
+
+    popup = ok ? 'Copied to clipboard' : "Couldn't copy, select it by hand";
+    clearTimeout(copyTimer);
+    copyTimer = setTimeout(() => (popup = ''), 2200);
+  }
 
   onMount(() => {
     // reaching the footer counts as finishing the page
@@ -33,6 +66,18 @@
   <ul class="links">
     <li><a href={profile.github} target="_blank" rel="noopener">GitHub</a></li>
     <li><a href={profile.linkedin} target="_blank" rel="noopener">LinkedIn</a></li>
+    <li class="discord">
+      <button type="button" onclick={copyDiscord} title="Copy Discord handle">
+        Discord: {profile.discord}
+      </button>
+      <span class="popup-slot" role="status" aria-live="polite">
+        {#if popup}
+          <span class="popup" in:fly={{ y: -8, duration: 160 }} out:fly={{ y: -8, duration: 140 }}>
+            {popup}
+          </span>
+        {/if}
+      </span>
+    </li>
   </ul>
 </section>
 
@@ -95,17 +140,58 @@
     gap: 10px;
     margin-top: 30px;
   }
-  .links a {
+  .links a,
+  .links button {
     display: block;
     padding: 5px 16px 4px;
     border: 1px solid var(--mat-rule);
     border-radius: 999px;
+    background: none;
     text-decoration: none;
+    line-height: inherit;
+    cursor: pointer;
   }
-  .links a:hover {
+  .links a:hover,
+  .links button:hover {
     background: var(--hi);
     border-color: var(--hi);
     color: #1d1b16;
+  }
+
+  /* the "copied" pop-up sits just below the Discord button */
+  .discord {
+    position: relative;
+  }
+  .popup-slot {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 10px);
+    translate: -50% 0;
+    pointer-events: none;
+  }
+  .popup {
+    display: block;
+    padding: 5px 14px 4px;
+    border: 1px solid rgba(255, 216, 74, 0.5);
+    border-radius: 999px;
+    background: #12110f;
+    color: #efe7d3;
+    font-size: 14px;
+    white-space: nowrap;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+  }
+  .popup::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    width: 9px;
+    height: 9px;
+    margin: 0 0 -5px -5px;
+    rotate: 45deg;
+    background: #12110f;
+    border-left: 1px solid rgba(255, 216, 74, 0.5);
+    border-top: 1px solid rgba(255, 216, 74, 0.5);
   }
 
   footer {
