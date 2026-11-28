@@ -1,7 +1,7 @@
 <script>
-  // Education and certification run as end credits, then the contact block.
+  // The contact block and the footer with the achievement tracker.
   import { onMount } from 'svelte';
-  import { profile, credits, vinyls } from '../data.js';
+  import { profile, vinyls } from '../data.js';
   import Vinyl from './Vinyl.svelte';
   import { achievements, list, unlock } from '../achievements.svelte.js';
 
@@ -20,24 +20,12 @@
   });
 </script>
 
-<section class="section column credits" aria-labelledby="credits-title">
-  <h2 class="section-title" id="credits-title">credits</h2>
-  <dl>
-    {#each credits as credit (credit.label)}
-      <div>
-        <dt>{credit.label}</dt>
-        <dd>{credit.value}<span>{credit.when}</span></dd>
-      </div>
-    {/each}
-  </dl>
-</section>
-
 <section class="section column contact" id="contact">
   <Vinyl record={vinyls.nectar} peek="left" style="--top: 52px; --right: 16px; --tilt: 5deg" />
   <h2 class="section-title">say hello</h2>
   <p class="lead">
-    I'm open to new roles and interesting problems, especially ones that mix product engineering
-    with machine learning. Email is the quickest way to reach me.
+    I'm open to new roles and interesting problems, especially ones about making a product feel
+    good and building the system behind it. Email is the quickest way to reach me.
   </p>
 
   <a class="email" href="mailto:{profile.email}">{profile.email}</a>
@@ -76,38 +64,6 @@
 </footer>
 
 <style>
-  /* ── end credits ── */
-  .credits {
-    text-align: center;
-  }
-  .credits .section-title {
-    margin-bottom: 26px;
-  }
-  dl {
-    display: grid;
-    gap: 14px;
-  }
-  dl div {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 26px;
-    align-items: baseline;
-  }
-  dt {
-    text-align: right;
-    color: var(--mat-dim);
-  }
-  dd {
-    text-align: left;
-    font-weight: 700;
-  }
-  dd span {
-    display: block;
-    font-weight: 400;
-    color: var(--mat-dim);
-    font-size: 14.5px;
-  }
-
   /* ── contact ── */
   .contact {
     padding-bottom: 40px;
@@ -203,18 +159,5 @@
   .small {
     font-size: 14px;
     color: var(--mat-dim);
-  }
-
-  @media (max-width: 640px) {
-    .credits {
-      text-align: left;
-    }
-    dl div {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-    dt {
-      text-align: left;
-    }
   }
 </style>

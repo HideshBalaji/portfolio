@@ -114,7 +114,7 @@ export const paper = {
 export const toolkit = [
   {
     group: 'Stack',
-    items: ['JavaScript', 'TypeScript', 'Rust', 'C++'],
+    items: ['TypeScript','JavaScript', 'Rust', 'C++'],
   },
   {
     group: 'Software engineering',
@@ -201,20 +201,3 @@ export const tapes = [
   { title: 'California', artist: 'blink-182' },
 ];
 
-export const credits = [
-  {
-    label: 'B.Tech, Computer Science Engineering',
-    value: 'Amrita Vishwa Vidyapeetham, Coimbatore',
-    when: '2021 – 2025',
-  },
-  {
-    label: 'Higher secondary',
-    value: 'The Velammal International School, Chennai',
-    when: '2021',
-  },
-  {
-    label: 'Certification',
-    value: 'Introduction to Android Mobile Application Development',
-    when: 'Oct 2024',
-  },
-];
