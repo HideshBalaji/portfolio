@@ -8,7 +8,7 @@ export const profile = {
   email: 'thehideshbalaji@outlook.com',
   github: 'https://github.com/HideshBalaji',
   githubHandle: 'HideshBalaji',
-  linkedin: 'https://www.linkedin.com/in/hidesh-balaji-c-u-068532221/',
+  linkedin: 'https://www.linkedin.com/in/hidesh-balaji-c-u/',
   // Drop a photo into /public and put its path here (for example '/me.jpg')
   // to show it in the hero polaroid once the countdown finishes.
   photo: null,
